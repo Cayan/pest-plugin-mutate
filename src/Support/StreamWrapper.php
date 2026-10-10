@@ -270,7 +270,7 @@ class StreamWrapper
     public function url_stat(string $path, int $flags): array|bool
     {
         return $this->withOriginalWrapper(function () use ($path, $flags): false|array {
-            if (is_readable($path) === false) {
+            if (file_exists($path) === false) {
                 return false;
             }
 
